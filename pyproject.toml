@@ -1,0 +1,27 @@
+[project]
+name = "rag-local-llama"
+version = "0.1.0"
+description = "基于 RAG + 本地 Llama 模型的学习型 Python 项目"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "llama-cpp-python>=0.2.79",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+rag-cli = "rag_local_llama.cli:main"
